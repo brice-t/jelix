@@ -146,7 +146,8 @@ class jSignificantUrlsCompiler implements jISimpleCompiler{
         $this->createUrlContent .= "filemtime('".$sourceFile.'\') > '.filemtime($sourceFile);
         $this->createUrlContentInc = '';
         $this->readProjectXml();
-        $this->retrieveModulePaths(jApp::configPath('defaultconfig.ini.php'));
+        $this->retrieveModulePaths(jApp::mainConfigFile());
+
         // for an app on a simple http server behind an https proxy, we shouldn't check HTTPS
         $this->checkHttps = jApp::config()->urlengine['checkHttpsOnParsing'];
 
